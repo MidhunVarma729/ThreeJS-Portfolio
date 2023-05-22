@@ -41,7 +41,6 @@ canvas {
 }
 
 
-
   header {
     background: var(--dark-bg);
     grid-column: 2 / span 5;
@@ -76,4 +75,10 @@ canvas {
 
   .left {
     grid-column: 6 / 12;
+    background-color: ;
+    opacity: 10;
   }
+
+/**
+Giving colors to the sections **/
+
