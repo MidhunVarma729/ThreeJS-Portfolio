@@ -20,9 +20,9 @@ camera.position.setX(-3);
 
 
 // Adding object or geometry.
-const geometry = new THREE.TorusGeometry(10,2,2,1000);
+const geometry = new THREE.TorusGeometry(10,1,2,1000);
 // const material = new THREE.MeshStandardMaterial({color: "ffffff", wireframe: true});
-const material = new THREE.MeshStandardMaterial({color: 0x963254});
+const material = new THREE.MeshStandardMaterial({color: 0x696969});
 const torus = new THREE.Mesh(geometry, material);
 scene.add(torus)
 
@@ -74,7 +74,7 @@ Array(300).fill().forEach(addStar);
 const spaceTexture =  new THREE.TextureLoader().load('space.jpg');
 scene.background =  spaceTexture;
 
-const gojoTexture = new THREE.TextureLoader().load('saitama.png');
+const gojoTexture = new THREE.TextureLoader().load('gojo.jpg');
 
 const gojo = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
