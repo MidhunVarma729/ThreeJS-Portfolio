@@ -20,9 +20,9 @@ camera.position.setX(-3);
 
 
 // Adding object or geometry.
-const geometry = new THREE.TorusGeometry(10,1,2,1000);
+const geometry = new THREE.TorusGeometry(10,2,15,1000);
 // const material = new THREE.MeshStandardMaterial({color: "ffffff", wireframe: true});
-const material = new THREE.MeshStandardMaterial({color: 0x696969});
+const material = new THREE.MeshStandardMaterial({color: 0xad0246});
 const torus = new THREE.Mesh(geometry, material);
 scene.add(torus)
 
@@ -69,12 +69,23 @@ function addStar(){
   scene.add(star);
 }
 
+// const points = [];
+// for ( let i = 0; i < 10; i ++ ) {
+// 	points.push( new THREE.Vector2( Math.sin( i * 0.2 ) * 10 + 5, ( i - 5 ) * 2 ) );
+// }
+// const geometryLathe = new THREE.LatheGeometry( points );
+// const materialLathe = new THREE.MeshBasicMaterial( { color: 0xC0C0C0 } );
+// const lathe = new THREE.Mesh( geometryLathe, materialLathe );
+// scene.add( lathe );
+// lathe.position.setZ(-100)
+
+
 Array(300).fill().forEach(addStar); 
 
 const spaceTexture =  new THREE.TextureLoader().load('space.jpg');
 scene.background =  spaceTexture;
 
-const gojoTexture = new THREE.TextureLoader().load('gojo.jpg');
+const gojoTexture = new THREE.TextureLoader().load('g1.png');
 
 const gojo = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
@@ -94,6 +105,18 @@ const moon = new THREE.Mesh(
   })
 )
 
+const sunTexture = new THREE.TextureLoader().load('sun.jpg');
+
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(3,32,32),
+  new THREE.MeshStandardMaterial({
+    map:sunTexture,
+  })
+)
+scene.add(sun);
+sun.position.setZ(-50)
+sun.position.setX(-90)
+
 
 scene.add(moon);
 moon.position.z = 30;
@@ -108,6 +131,10 @@ function moveCamera() {
   moon.rotation.x += 0.05;
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
+
+  sun.rotation.x += 0.05;
+  sun.rotation.y += 0.075;
+  sun.rotation.z += 0.05;
 
   gojo.rotation.y += 0.01;
   gojo.rotation.z += 0.01;
@@ -130,6 +157,8 @@ function animate(){
 
   // controls.update();
   moon.rotation.x += 0.005;
+  sun.rotation.x += 0.015;
+
   renderer.render(scene, camera);
 }
 
