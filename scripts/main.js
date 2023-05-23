@@ -1,6 +1,6 @@
 import '../assets/css/style.css'
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from '../node_modules/three/examples/jsm/controls/OrbitControls';
 
 //  Three most important compontent: Scene, camera, renderer.
 const scene = new THREE.Scene();
